@@ -1,27 +1,147 @@
-/* based on https://github.com/twbs/bootstrap/issues/22104#issuecomment-387431795 */
-@media (max-width: 575.98px) {
-	//Manage Display Headers for Mobile Devices
-	.display-1 {
-		font-size: 3rem;
-		font-weight: 300;
-		line-height: 1.0;
-	}
+/* DCNF branding - Pico CSS v2 overrides */
 
-	.display-2 {
-		font-size: 2.75rem;
-		font-weight: 300;
-		line-height: 1.0;
-	}
+/* Primary color */
+:root {
+	--pico-primary: #3273dc;
+	--pico-primary-background: #3273dc;
+	--pico-primary-hover: #2366c8;
+	--pico-primary-hover-background: #2366c8;
+	--pico-primary-focus: rgba(50, 115, 220, 0.5);
+	--pico-primary-inverse: #fff;
+}
 
-	.display-3 {
-		font-size: 2.25rem;
-		font-weight: 300;
-		line-height: 1.0;
+@media only screen and (prefers-color-scheme: dark) {
+	:root:not([data-theme]) {
+		--pico-primary: #539cff;
+		--pico-primary-background: #3273dc;
+		--pico-primary-hover: #79b4ff;
+		--pico-primary-hover-background: #4088e8;
+		--pico-primary-focus: rgba(83, 156, 255, 0.375);
+		--pico-primary-inverse: #fff;
 	}
+}
 
-	.display-4 {
-		font-size: 1.75rem;
-		font-weight: 300;
-		line-height: 1.0;
-	}
+[data-theme="dark"] {
+	--pico-primary: #539cff;
+	--pico-primary-background: #3273dc;
+	--pico-primary-hover: #79b4ff;
+	--pico-primary-hover-background: #4088e8;
+	--pico-primary-focus: rgba(83, 156, 255, 0.375);
+	--pico-primary-inverse: #fff;
+}
+
+/* Narrower container */
+.container {
+	max-width: 44rem;
+}
+
+/* Header */
+header.container {
+	border-bottom: 1px solid var(--pico-muted-border-color);
+	margin-bottom: var(--pico-block-spacing-vertical);
+}
+
+header.container nav ul li strong {
+	font-size: 1.25rem;
+}
+
+header.container .tagline {
+	color: var(--pico-muted-color);
+}
+
+/* Hero section - bigger, more breathing room */
+.hero {
+	text-align: center;
+	padding-bottom: 2.5rem;
+	margin-bottom: 2.5rem;
+	border-bottom: 1px solid var(--pico-muted-border-color);
+}
+
+.hero p {
+	font-size: 1.2rem;
+	line-height: 1.7;
+}
+
+/* Content sections - smaller and more compact */
+main.container > section:not(.hero) h2 {
+	font-size: 1.25rem;
+	margin-top: 1.5rem;
+}
+
+main.container > section:not(.hero) h4 {
+	font-size: 1rem;
+}
+
+main.container > section:not(.hero) p {
+	font-size: 0.9rem;
+}
+
+main.container > section:not(.hero) li {
+	font-size: 0.9rem;
+}
+
+main.container > section:not(.hero) small {
+	font-size: 0.8rem;
+}
+
+main.container > section:not(.hero) {
+	margin-top: 0.5rem;
+}
+
+/* Footer */
+footer.container {
+	margin-top: var(--pico-block-spacing-vertical);
+	padding-top: var(--pico-spacing);
+	color: var(--pico-muted-color);
+	border-top: 1px solid var(--pico-muted-border-color);
+}
+
+footer.container p {
+	margin-bottom: 0;
+}
+
+/* Article cards */
+article h4:first-child {
+	margin-top: 0;
+}
+
+article header h4 {
+	margin-bottom: 0;
+}
+
+article footer {
+	padding-top: 0.5rem;
+}
+
+/* Platform badges inline */
+li > small {
+	color: var(--pico-muted-color);
+	font-size: 0.8em;
+}
+
+/* Outline buttons */
+a.outline[role="button"] {
+	width: auto;
+}
+
+/* Deprecated protocol */
+article.deprecated {
+	opacity: 0.65;
+	border-left: 3px solid #e74c3c;
+}
+
+article.deprecated h4::after {
+	content: " (legacy)";
+	font-size: 0.75em;
+	font-weight: 400;
+	color: #e74c3c;
+}
+
+article.deprecated p {
+	font-size: 0.9rem;
+}
+
+/* Active protocol */
+article.active {
+	border-left: 3px solid #27ae60;
 }
