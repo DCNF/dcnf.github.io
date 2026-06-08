@@ -1,7 +1,9 @@
 /* DCNF branding - Pico CSS v2 overrides */
 
 /* Primary color */
-:root {
+[data-theme="light"],
+:root:not([data-theme=dark]),
+:host:not([data-theme=dark]) {
 	--pico-primary: #3273dc;
 	--pico-primary-background: #3273dc;
 	--pico-primary-hover: #2366c8;
@@ -11,7 +13,8 @@
 }
 
 @media only screen and (prefers-color-scheme: dark) {
-	:root:not([data-theme]) {
+	:root:not([data-theme]),
+	:host:not([data-theme]) {
 		--pico-primary: #539cff;
 		--pico-primary-background: #3273dc;
 		--pico-primary-hover: #79b4ff;
@@ -127,14 +130,14 @@ a.outline[role="button"] {
 /* Deprecated protocol */
 article.deprecated {
 	opacity: 0.65;
-	border-left: 3px solid #e74c3c;
+	border-left: 3px solid var(--pico-del-color);
 }
 
 article.deprecated h4::after {
 	content: " (legacy)";
 	font-size: 0.75em;
 	font-weight: 400;
-	color: #e74c3c;
+	color: var(--pico-del-color);
 }
 
 article.deprecated p {
@@ -143,5 +146,5 @@ article.deprecated p {
 
 /* Active protocol */
 article.active {
-	border-left: 3px solid #27ae60;
+	border-left: 3px solid var(--pico-ins-color);
 }
